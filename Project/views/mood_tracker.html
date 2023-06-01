@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
+    integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+<link rel="stylesheet" type="text/css" href="/css/calendar.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+<script>
+
+    $(function () {
+        $("#nav-placeholder").load("./topNav");
+    });
+
+</script>
+
+<div id="nav-placeholder"></div>
+
+<body>
+</br>
+<div>
+    <div class="calendar">
+        <div class="month">
+            <i class="fas fa-angle-left prev"></i>
+            <div class="date">
+                <h1></h1>
+                <p></p>
+                <span>**Click on the date to add the mood**</span>
+            </div>
+            
+            <i class="fas fa-angle-right next"></i>
+        </div>
+        <div>
+            <div class="weekdays">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+            </div>
+            <div class="days" ></div>
+        </div>
+        
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+  
+        <div class="card" style="width: fit-content;">
+            <div class="card-header" >
+                <h4 style="justify-content: center; display:flex" >How do you feel today?</h4>
+                <span style="justify-content: center; display:flex">select a mood</span>
+            </div>
+            <div class="card-body" style="justify-content: center; align-items: center;">
+                <div class="moodPack" style="justify-content: center; display:flex">
+                    <a href="/happy" style="padding:15px;">
+                        <i class="bi bi-emoji-smile-fill" style="color: rgb(155, 201, 135);font-size: 5rem; "></i>
+                    </a>
+                    <a href="/cool" style="padding:15px;">
+                        <i class="bi bi-emoji-sunglasses-fill" style="color: rgb(135, 201, 201); font-size: 5rem;"></i>
+                    </a>
+                    <a href="/neutral" style="padding:15px;">
+                        <i class="bi bi-emoji-neutral-fill" style="color: rgb(253, 229, 94); font-size: 5rem;"></i>
+                    </a>
+                    <a href="/mad" style="padding:15px;">
+                        <i class="bi bi-emoji-angry-fill" style="color: rgb(186, 86, 86); font-size: 5rem;"></i>
+                    </a>
+                    <a href="/sad" style="padding:15px;">
+                        <i class="bi bi-emoji-frown-fill" style="color: rgb(153, 135, 201); font-size: 5rem;"></i>
+                    </a>
+                </div>     
+            </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+    
+</body>
+<footer class="footer">
+    <div class="row align-items-center justify-content-xl-between">
+      <div class="col-xl-6 m-auto text-center">
+        <div class="copyright">
+          <!-- <p>Made with <a href="https://www.creative-tim.com/product/argon-dashboard" target="_blank">Argon
+              Dashboard</a> by Creative Tim</p> -->
+        </div>
+      </div>
+    </div>
+</footer>
+  
+
+
+
+</html>
+
+</body>
+
+<script>
+    /* mood = `<%= today_mood %>`;
+    console.log(mood); */
+
+    function highlightMood(id, mood) {
+        if (mood == "neutral") {
+                var element = document.getElementById(id);
+                element.style.backgroundColor = "rgb(253, 229, 94)";
+            } else if (mood == "happy"){
+                var element = document.getElementById(id);
+                element.style.backgroundColor = "rgb(155, 201, 135)";
+            } else if (mood == "mad"){
+                var element = document.getElementById(id);
+                element.style.backgroundColor = "rgb(186, 86, 86)";
+            } else if (mood == "sad"){
+                var element = document.getElementById(id);
+                element.style.backgroundColor = "rgb(153, 135, 201)";
+            } else if (mood == "cool"){
+                var element = document.getElementById(id);
+                element.style.backgroundColor = "rgb(135, 201, 201)";
+            } else {
+                var element = document.getElementById(id);
+                element.style.backgroundColor = "white";
+            }
+    }
+
+    const date = new Date();
+
+
+        const renderCalendar = () => {
+            date.setDate(1);
+
+            const monthDays = document.querySelector(".days");
+
+            const lastDay = new Date(
+                date.getFullYear(),
+                date.getMonth() + 1,
+                0
+            ).getDate();
+
+            const prevLastDay = new Date(
+                date.getFullYear(),
+                date.getMonth(),
+                0
+            ).getDate();
+
+            const firstDayIndex = date.getDay();
+
+            const lastDayIndex = new Date(
+                date.getFullYear(),
+                date.getMonth() + 1,
+                0
+            ).getDay();
+
+            const nextDays = 7 - lastDayIndex - 1;
+
+            const months = [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December",
+            ];
+
+            document.querySelector(".date h1").innerHTML = months[date.getMonth()];
+
+            document.querySelector(".date p").innerHTML = new Date().toDateString();
+
+            let days = "";
+
+            for (let x = firstDayIndex; x > 0; x--) {
+                days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
+            }
+
+            for (let i = 1; i <= lastDay; i++) {
+                if (
+                    i === new Date().getDate() &&
+                    date.getMonth() === new Date().getMonth()
+                ) {
+                    days += `<div class="today" id="today" data-bs-toggle="modal" data-bs-target="#myModal">${i}</div>`;
+                    
+                } else {
+                    var dayId = i.toString() + (date.getMonth() + 1).toString(10) + date.getFullYear();
+                    days += `<div id=${dayId}>${i}</div>`;
+                }
+            }
+
+            for (let j = 1; j <= nextDays; j++) {
+                days += `<div class="next-date">${j}</div>`;
+                monthDays.innerHTML = days;
+            }
+
+            highlightMood("today", `<%= today_mood %>`);
+
+            var prev_moods = '<%- JSON.stringify(prev_moods)%>';
+            prev_moods = JSON.parse(prev_moods);
+
+            if(prev_moods !== {}) {
+                for(let dateId in prev_moods) {
+                    //alert("Date ID: " + dateId);
+                    highlightMood(dateId, prev_moods[dateId]);
+                }
+            }
+        };
+
+        document.querySelector(".prev").addEventListener("click", () => {
+            date.setMonth(date.getMonth() - 1);
+            renderCalendar();
+        });
+
+        document.querySelector(".next").addEventListener("click", () => {
+            date.setMonth(date.getMonth() + 1);
+            renderCalendar();
+        });
+
+        renderCalendar();
+        
+    
+    
+
+</script>
+
+</html>

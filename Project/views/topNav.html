@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/css/topNav.css">
+
+</head>
+<header>
+  <a href="/homepage">
+    <div class="logo" id="myLogo">
+      <h2>Mood.ly</h2>
+    </div>
+  </a>
+
+  <div class="topnav" id="myTopnav" style="padding:20px">
+    <a href="/profile">Profile</a>
+    <a href="/tips">Tips</a>
+    <a href="/forum_mainpage">Forum</a>
+    <a href="journal">Journal</a>
+    <a href="mood_tracker">Mood Tracker</a>
+    <a href="/homepage">Home</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+
+  </div>
+
+</header>
+</html>
+  
+  
+
+<script>
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+</script>

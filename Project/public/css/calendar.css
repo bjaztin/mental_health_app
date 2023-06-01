@@ -1,0 +1,222 @@
+:root{
+  --form-height:550px;
+  --form-width: 900px;
+  /*  Sea Green */
+  --left-color: #9fdeaf;
+  /*  Light Blue  */
+  --right-color: #96dbe2;
+    --font-family-sans-serif: Open Sans, sans-serif;
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+
+body, html{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  letter-spacing: 0.5px;
+  background-color: #f5f5ed;
+  background-repeat: no-repeat;
+  background-size: 1300px;
+  background-position: 80px 200px;
+;
+}
+
+img{
+width:1000px;
+height:800; 
+}
+/* 
+---------------
+    Top-nav
+---------------
+*/
+.logo {
+  width: 100px;
+  margin-left: 80px;
+  margin-top: 20px;
+  position: absolute;
+  color: #1A5F16;
+  display: block;
+}
+.logo h2 {
+  font-size: 32px;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 30px;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: 'Helvetica Neue', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.topnav a:hover {
+  border-bottom: 2px solid #1A5F16;
+  color: #1A5F16;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+
+
+} */
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+small{
+  color: red;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: "Quicksand", sans-serif; */
+}
+
+/* html {
+  font-size: 62.5%;
+} */
+
+.container {
+  width: max-content;
+  height: 100vh;
+  /* background-color: #12121f; */
+  color: rgb(10, 10, 10);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 0.5rem 3rem rgba(255, 255, 255, 0.4);
+}
+
+.month {
+  width: 100%;
+  height: 15rem;
+  background-color: #F5F5ED;
+  color: #7e6e5a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  text-align: center;
+  text-shadow: 0 0.3rem 0.5rem rgba(75, 69, 69, 0.5);
+}
+
+.month i {
+  font-size: 4rem;
+  cursor: pointer;
+}
+
+.month h1 {
+  font-size: 3rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.month p {
+  font-size: 1.6rem;
+}
+
+.weekdays {
+  width: 100%;
+  height: 5rem;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.weekdays div {
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  width: calc(100% / 7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* text-shadow: 0 0.3rem 0.5rem rgba(126, 95, 95, 0.5); */
+  /* border: 1px solid black; */
+}
+
+.days {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+.days div {
+  font-size: 1rem;
+  width: calc(100% / 7);
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5); */
+  transition: background-color 0.2s;
+  /* border: 1px solid black; */
+}
+
+.days div:hover:not(.today) {
+  background-color: #5895b1;
+  /* border: 0.2rem solid #777; */
+  cursor: pointer;
+}
+
+.prev-date,
+.next-date {
+  opacity: 0.5;
+}
+
+.today {
+  border:0.4rem solid #7e6e5a
+}
+.footer {
+  padding: 2.5rem 0;
+  background: #f5f5ed;
+}
+
+.footer .nav .nav-item .nav-link {
+  color: #8898aa !important;
+}
+
+.footer .nav .nav-item .nav-link:hover {
+  color: #525f7f !important;
+}
+
+.footer .copyright {
+  font-size: .875rem;
+}
+
+
+@media only screen and (max-width: 425px) {
+  .weekdays div {
+    font-size: 1rem;
+  }
+}

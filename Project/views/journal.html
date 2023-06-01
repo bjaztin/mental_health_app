@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+
+<title>Moodly - Journal</title>
+
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="/css/journal.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</head>
+<script>
+
+    $(function () {
+        $("#nav-placeholder").load("./topNav");
+    });
+
+</script>
+<div id="nav-placeholder"></div>
+
+
+<body>
+  
+    <h1 style="text-align: center;">My Journal</h1>
+    <div class="container-fluid p-3 my-3 text-black">
+            <div class="row input-group" >
+    
+                    <button type="button" class="btn dropdown-toggle text-black  border-dark" data-bs-toggle="dropdown" style="width:auto ;">
+                        Select Day to View/Edit
+                    </button>
+                    <ul class="dropdown-menu" style="width: auto;">
+                        <% if(locals.userJournalEntriesData && locals.userJournalEntriesData.length> 0) { %>
+                            <% userJournalEntriesData.forEach(function(parameter) { %>
+                                <li>
+                                    <div class="dropdown-item" data-bs-toggle="modal"
+                                        data-bs-target="#openJournal<%= parameter.dayNum%>">
+                                        <%= parameter.dayNum%>
+                                    </div>
+                                </li>
+                                <% }) %>
+    
+                                    <% } %>
+                    </ul>
+               
+                
+    
+                    <% if(!locals.dailyEntryDone) { %>
+                        <button type="button" class="btn text-black border-dark shadow " style="width: auto;"
+                            data-bs-toggle="modal" data-bs-target="#addJournalEntry">
+                            Add Journal Entry
+                        </button>
+                        <% } else { %>
+                            <button type="button" class="btn text-black border-dark shadow jounralBtn"  style="width: auto;"
+                                data-bs-toggle="modal" data-bs-target="#editJournalEntry<%= locals.latestDayNum%>">
+                                Edit Today's Entry
+                            </button>
+                            <% } %>
+            </div>
+    
+    </div>
+
+    <% if(!locals.dailyEntryDone) { %>
+        <div class="container">
+            <div class="alert alert-danger noDataToday" role="alert">
+                You have yet to submit a journal today!
+            </div>
+        </div>
+        
+    <% } %>
+
+    <div class="row row-3">
+    <% if(locals.userJournalEntriesData && locals.userJournalEntriesData.length > 0) { %>    
+        <% userJournalEntriesData.forEach(function(parameter) { %>
+            <div class="grid">
+                <div class="grid-item journal-container" data-bs-toggle="modal" data-bs-target="#openJournal<%= parameter.dayNum%>" style="padding-left: 20px ;padding-right: 20px; padding-top:10px; border-radius: 15px; height: 300px; " >
+                    <div class="grid-header" style="display: flex;">
+                        <h4 style="padding: 20px;">Day <%= parameter.dayNum %></h4>
+                        <span style="text-align: end ; flex:auto; align-self:flex-end; padding-bottom: 34px"><%= parameter.dateAdded %></span>
+                    </div>
+                        
+                        <p class="wrap-content">
+                            <%= parameter.content %>
+                        </p>
+                </div>
+            </div>
+            <div class="modal " id="openJournal<%= parameter.dayNum%>">
+                <div class="modal-dialog modal-dialog-centered mb-2 modal-dialog-scrollable">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <span style="font-size: 15px;">Date: <%= parameter.dateAdded%> </span>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p><%= parameter.content %></p>
+                        </div>
+                        <div class="modal-footer" >
+                            <button class="btn text-black border-dark shadow" data-bs-toggle="modal" data-bs-target="#editJournalEntry<%= parameter.dayNum%>">
+                                Edit
+                            </button>
+                        </div>
+
+                        <!-- <form method="POST" action="/editjournalentry" id="form">
+                            <div class="modal-body">
+                                <textarea class="form-control w-100" rows="5" id="journalContent" name="journalContent" 
+                                placeholder="How are you feeling today?"><%= parameter.content %></textarea>
+                            </div>
+                            <input type="hidden" id="dayNum" name="dayNum" value="<%= parameter.dayNum %>">
+                            <input type="hidden" id="dateAdded" name="dateAdded" value="<%= parameter.dateAdded %>">
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary text-white border-dark shadow" data-bs-dismiss="modal">Edit</button>
+                            </div>
+                        </form> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal" id="editJournalEntry<%= parameter.dayNum%>">
+                <div class="modal-dialog modal-dialog-centered mb-2 modal-dialog-scrollable ">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h4 class="modal-title">Edit Journal Entry Day <%= parameter.dayNum%></h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <form method="POST" action="/editjournalentry" id="form">
+                            <div class="modal-body">
+                                <textarea class="form-control w-100" rows="5" id="journalContent" name="journalContent" 
+                                placeholder="How are you feeling today?"><%= parameter.content %></textarea>
+                            </div>
+                            <input type="hidden" id="dayNum" name="dayNum" value="<%= parameter.dayNum %>">
+                            <input type="hidden" id="dateAdded" name="dateAdded" value="<%= parameter.dateAdded %>">
+                            <div class="modal-footer" >
+                                <button type="submit" class="btn text-black border-dark shadow" data-bs-dismiss="modal">Done</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div> 
+        <% }) %>
+
+    <% } %>
+    </div>
+
+    <div class="modal" id="addJournalEntry">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Daily Journal Entry</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <form method="POST" action="/addjournalentry" id="form">
+                    <div class="modal-body">
+                        <textarea class="form-control w-100" rows="5" id="journalContent" name="journalContent" 
+                                placeholder="How are you feeling today?"></textarea>
+                    </div>
+
+                    <input type="hidden" id="dayNum" name="dayNum" value="<%= locals.latestDayNum + 1 %>">
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn text-black border-dark shadow" data-bs-dismiss="modal">Add</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

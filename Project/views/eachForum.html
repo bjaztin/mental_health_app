@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
+  integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+<link rel="stylesheet" type="text/css" href="/css/eachForum.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+<script>
+
+  $(function () {
+    $("#nav-placeholder").load("./topNav");
+  });
+
+</script>
+  <div id="nav-placeholder"></div>
+
+<body>
+  <div class="content">
+<div class="content-body">
+  <!-- <a class="btn text-black border-dark shadow" href="/forum_mainpage">back</a> -->
+  <div class="contentTitle">
+    <h1>
+      <%= forumTitle%>
+    </h1>
+    <div>
+      <p class="forumContent">
+        <%= forumContent%>
+      </p>
+      <p>Uploaded by <%= uploader%> 
+        <form id="form" method="POST" action="addLikeForum">
+          <input rows="3" type="text" class="form-control" id="<%=forumId%>" value="<%=forumId%>" name="forumId"
+            placeholder="<%=forumId%>" hidden>
+          <span >
+            <button type="submit"  class="btn" style="color:white;background-color: rgb(202, 79, 100); font-size: 12px;">
+              <i class="bi bi-heart-fill" style="color: white; "></i>
+              <%= numOfLikes%>
+            </button>
+          </span>
+        </form>
+      </p>
+    </div>
+  </div>
+
+
+  <span style="margin: 20px;">Replies (<%= numOfReplies%>)</span>
+
+
+  <% replyPosts.forEach(function(reply) { %>
+    <div>
+      <!-- <%= reply.forumReplyId %> -->
+      <div class="replies">
+        <h5>
+          <%= reply.username %>
+        </h5>
+        <p style="font-size: 20px;">
+          <%= reply.reply %>
+        </p>
+
+        <span style="padding-left: 90%;">Uploaded: <%= reply.currentTime %></span>
+      </div>
+      <hr>
+
+
+      <% }); %>
+        <div class="replyBox">
+          <form id="form" method="POST" action="addReply">
+            <div class="form-group input-group mb-3">
+              <!-- <label for="userReply">Reply to post</label> <span id="nameAlert"></span> -->
+              <input rows="3" type="text" class="form-control" id="userReply" name="userReply"
+                placeholder="Reply to post" required>
+              <button type="submit" id="submitBtn" onclick="refreshPage()" class="btn btn-danger"> Add</button>
+            </div>
+            <div class="form-group">
+              <!-- <label for="userReply">Reply to post</label> <span id="nameAlert"></span> -->
+              <input rows="3" type="text" class="form-control" id="<%=forumId%>" value="<%=forumId%>" name="forumId"
+                placeholder="<%=forumId%>" hidden>
+            </div>
+            <div>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
+  </div>
+  
+</body>
+
+</html>

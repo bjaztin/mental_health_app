@@ -1,0 +1,120 @@
+/*HEADER CSS*/
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap");
+body {
+  background-color: #F5F5ED;
+}
+
+.logo{
+  width:100px;
+  margin-left: 80px;
+  margin-top: 20px;
+  position: absolute;
+  color: #1A5F16;
+  display: block;
+}
+
+.logo h2{
+  font-size:32px;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  padding:20px;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 30px;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: 'Helvetica Neue', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.topnav a:hover{
+  border-bottom: 2px solid #1A5F16;
+  color:#1A5F16;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+/*TIPS CSS*/
+h1 {
+    color: #DF9527
+}
+
+.card{
+  height: auto;
+}
+
+.tipsImage{
+  height: 200px;
+  width: -webkit-fill-available;
+}
+
+.col-md-2{
+  align-self: center;
+}
+
+@media (max-width: 755px) {
+  .container {
+    max-width: 540px;
+  }
+
+  .iconBG {
+    border-radius: 10px 10px 0px 0px;
+    text-align: -webkit-center;
+  }
+
+  .card {
+    font-size: 16px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 15px;
+  }
+
+  .tipsImage {
+    height: 200px;
+    width: -webkit-fill-available;
+  }
+  .carousel-inner,
+  .carousel-item {
+    height: 200px;
+  }
+
+  .icon {
+    font-size: 80px;
+  }
+
+  .card-title {
+    font-size: 17px;
+  }
+
+  .col-md-6 {
+    padding: 0;
+  }
+
+  .row {
+    --bs-gutter-x: 0;
+  }
+
+  .col-md-2{
+    align-self: end;
+    text-align: end;
+  }
+
+  .btn{
+    text-align: end;
+  }
+}

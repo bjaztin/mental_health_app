@@ -1,0 +1,137 @@
+/*HEADER CSS*/
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap");
+body {
+    background-color: #F5F5ED;
+}
+
+.logo{
+    width:100px;
+    margin-left:70px;
+    margin-top: -10px;
+    position: absolute;
+    color: #1A5F16;
+    display: block;
+}
+
+.logo h2{
+    font-size:32px;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+    padding:20px;
+    overflow: hidden;
+    background-color: #F5F5ED;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: right;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 8px 30px;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'Helvetica Neue', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.topnav a:hover{
+    border-bottom: 2px solid #1A5F16;
+    color:#1A5F16;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+    display: none;
+}
+
+/* PROFILE CSS */
+.profile {
+    height: 200px;
+    width: 200px;
+    background-color: #DF9527;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 90px;
+}
+  
+.profile img {
+    width: 180px;
+    margin-left: 10px;
+}
+
+.profile p {
+    text-decoration: none;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 10px;
+    margin-top: 30px;
+    font-family: "Roboto Condensed", sans-serif;
+    color: black;
+}
+
+.profile_edit {
+    border: 2px solid black;;
+    border-radius: 5px;
+    margin-left: 40px;
+    padding: 8px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+
+.profile_edit:hover {
+    background-color: #e5e7e9;
+}
+
+.log_out {
+    border: 2px solid black;;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-left: 55px;
+    padding: 8px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+
+.profile_particulars {
+    font-family: "Roboto Condensed", sans-serif;
+    padding: 0px 30px;
+    margin: 50px 0px 0px 430px;
+    width: 50%;
+}
+
+.profile_particulars .field_name {
+    padding: 10px;
+    font-size: 20px;
+    color: black;
+    display: inline-block;
+    text-align: right;
+    width: 200px;
+}
+
+.profile_particulars .field_input {
+    border-radius: 10px;
+    font-size: 20px;
+    padding-left: 10px;
+    display: inline-block;
+    width: 500px;
+    border: 2px solid black;
+    vertical-align: center;
+    background-color: #f7eeee;
+}
+

@@ -1,0 +1,175 @@
+/*HEADER CSS*/
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap");
+body {
+  background-color: #F5F5ED;
+  margin:0;
+}
+
+.logo{
+  width:100px;
+  margin-left:80px;
+  margin-top: 20px;
+  position: absolute;
+  color: #1A5F16;
+  display: block;
+}
+
+.logo h2{
+    font-size:32px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  padding:20px;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 8px 30px;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: 'Helvetica Neue', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.topnav a:hover{
+  border-bottom: 2px solid #1A5F16;
+  color:#1A5F16;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+.active {
+  background-color: #717171;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+h1 {
+  color: #5b9658;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 1px 1px #c2c2b7;
+}
+
+h3{
+  padding-bottom: 20px;
+  font-weight: 1000;
+  text-shadow:1px 1px 1px 1px black;
+}
+
+h5{
+  font-size: 40px;
+}
+
+img{
+  height: 400px;
+  opacity: 0.3;
+}
+
+.card{
+  border-radius: 15px;
+  margin: 10px;
+}
+
+.iconBG{
+  border-radius: 15px 0px 0px 15px ;
+  text-align: -webkit-center;
+}
+
+i{
+  align-self: center;
+}
+
+.card-Footer{
+  padding: 20px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.col-md-6, .col-md-7{
+  align-self: center;
+  color: #6e6c61;
+}
+
+.card:hover{
+      transform: scale(0.98);
+      /* Scaling button to 0.98 to its original size */
+      box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+      /* Lowering the shadow */
+}
+
+.row-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.wrap-content {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+}
+
+@media (max-width: 755px) {
+  .container {
+    max-width: 540px;
+  }
+
+  .iconBG {
+    border-radius: 10px 10px 0px 0px;
+    text-align: -webkit-center;
+  }
+
+  .card{
+    font-size: 16px;
+    
+  }
+
+  img {
+    height: 200px;
+    opacity: 0.3;
+  }
+
+  .carousel-inner, .carousel-item{
+    height: 200px;
+  }
+
+  .icon{
+    font-size: 80px;
+  }
+  
+  .card-title{
+    font-size: 17px;
+  }
+  
+  .col-md-6{
+    padding: 0;
+  }
+
+  .row{
+    --bs-gutter-x: 0;
+  }
+}

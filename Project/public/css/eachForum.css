@@ -1,0 +1,94 @@
+body {
+  background-color: #F5F5ED;
+}
+
+/* nav bar */
+.logo {
+  width: 100px;
+  margin-left: 80px;
+  margin-top: 20px;
+  position: absolute;
+  color: #1A5F16;
+  display: block;
+}
+
+.logo h2 {
+  font-size: 32px;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  padding: 20px;
+  overflow: hidden;
+  background-color: #F5F5ED;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 8px 30px;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: 'Helvetica Neue', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.topnav a:hover {
+  border-bottom: 2px solid #1A5F16;
+  color: #1A5F16;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+small {
+  color: red;
+}
+
+/* content */
+
+.forumContent{
+  font-size: 1.5rem;
+}
+
+.content-body{
+  margin: 30px;
+  padding: 20px;
+}
+
+.contentTitle{
+  
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.replies{
+  margin-top: 20px;
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+.replyBox{
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+h1{
+  color: #DF9527
+}
+
+.content{
+  
+  margin-left: 80px;
+  margin-right: 80px;
+  background-color: white;
+  border-radius: 25px;
+}
